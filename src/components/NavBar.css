@@ -1,0 +1,11 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: auto;
+  height: 40px;
+}
