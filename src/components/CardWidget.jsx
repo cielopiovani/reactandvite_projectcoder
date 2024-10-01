@@ -4,7 +4,7 @@ function CardWidget() {
   return (
     <>
       <button className="button-card">
-        <i class="bi bi-cart">1</i>
+        <i className="bi bi-cart">1</i>
       </button>
     </>
   );

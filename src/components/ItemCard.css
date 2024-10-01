@@ -1,0 +1,32 @@
+.container-product {
+  margin: 10px;
+  padding: 20px;
+}
+
+.container-product:hover {
+  background-color: hsl(60, 36%, 91%);
+}
+
+.img-product {
+  width: 220px;
+  height: auto;
+}
+
+.button-details a:link {
+  text-decoration: none;
+}
+
+.button-details {
+  color: black;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.button-details:hover {
+  background: black;
+  color: white;
+}

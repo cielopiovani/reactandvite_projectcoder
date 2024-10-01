@@ -1,23 +1,30 @@
 import ButtonMenu from "./ButtonMenu";
 import CardWidget from "./CardWidget";
 import "./NavBar.css";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <>
       <nav className="nav-bar">
-        <a href="">
+        <Link to="/products">
           <img
             src="src\assets\logo_dunas_negro.png"
-            alt="Icono"
+            alt="dunas"
             className="icon"
           />
-        </a>
+        </Link>
 
         <div>
-          <ButtonMenu titulo="INICIO" />
-          <ButtonMenu titulo="SHOP" />
-          <ButtonMenu titulo="CONTACTO" />
+          <Link to="/active">
+            <ButtonMenu titulo="ACTIVE" />
+          </Link>
+          <Link to="/corpinio">
+            <ButtonMenu titulo="CORPIÑOS" />
+          </Link>
+          <Link to="/bombacha">
+            <ButtonMenu titulo="BOMBACHAS" />
+          </Link>
         </div>
 
         <CardWidget />
