@@ -4,6 +4,7 @@ const products = [
     title: "Corpiño Mar Lila",
     price: "25$",
     category: "corpinio",
+    quantity: "",
     description:
       "Descripción: Corpiño con escote cuadrado, espalda baja, y terminaciones de excelente calidad. Cómodo y suave, sencillo y elegante.",
     image:
@@ -14,6 +15,7 @@ const products = [
     title: "Corpiño Mar Celeste",
     price: "25$",
     category: "corpinio",
+    quantity: "",
     description:
       "Descripción: Corpiño con escote cuadrado, espalda baja, y terminaciones de excelente calidad. Cómodo y suave, sencillo y elegante.",
     image:
@@ -80,13 +82,18 @@ const products = [
 export const getProducts = new Promise((resolve) => {
   setTimeout(() => {
     resolve(products);
-  }, 2000);
+  }, 4000);
 });
 
 export const getProduct = (id) => {
   return products.find((product) => product.id == id);
 };
 
-export const getCategory = (category) => {
-  return products.filter((item) => item.category === category);
+// export const getCategory = (category) => {
+//   return products.filter((item) => item.category === category);
+// };
+
+export const addOrder = (order) => {
+  console.log("Orden creada:", order);
+  return Promise.resolve("order123"); // Simulando un ID de orden
 };

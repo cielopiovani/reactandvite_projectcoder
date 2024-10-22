@@ -30,3 +30,11 @@
   background: black;
   color: white;
 }
+
+.checkout-terms {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}

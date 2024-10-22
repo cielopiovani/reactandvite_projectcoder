@@ -5,31 +5,23 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <>
-      <nav className="nav-bar">
-        <Link to="/products">
-          <img
-            src="src\assets\logo_dunas_negro.png"
-            alt="dunas"
-            className="icon"
-          />
+    <nav className="nav-bar">
+      <Link to="/products">
+        <img src="src/assets/logo_dunas_negro.png" alt="dunas" className="icon" />
+      </Link>
+      <div>
+        <Link to="/products?category=active" >
+          <ButtonMenu titulo="ACTIVE" />
         </Link>
-
-        <div>
-          <Link to="/active">
-            <ButtonMenu titulo="ACTIVE" />
-          </Link>
-          <Link to="/corpinio">
-            <ButtonMenu titulo="CORPIÑOS" />
-          </Link>
-          <Link to="/bombacha">
-            <ButtonMenu titulo="BOMBACHAS" />
-          </Link>
-        </div>
-
-        <CardWidget />
-      </nav>
-    </>
+        <Link to="/products?category=corpinio" >
+          <ButtonMenu titulo="CORPIÑOS" />
+        </Link>
+        <Link to="/products?category=bombacha" >
+          <ButtonMenu titulo="BOMBACHAS" />
+        </Link>
+      </div>
+      <CardWidget />
+    </nav>
   );
 }
 

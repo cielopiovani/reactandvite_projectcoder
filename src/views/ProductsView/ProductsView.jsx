@@ -1,10 +1,11 @@
-import "./ItemListContainer.css";
 import { useEffect, useState } from "react";
-import { getProducts } from "../asyncMock.js";
-import ItemCard from "./ItemCard.jsx";
+import { getProducts } from "../../asyncMock.js";
+import ItemCard from "../../components/ItemCard.jsx";
+import { useSearchParams } from "react-router-dom"; 
 
-
-function ItemListContainer({ category }) {
+const ProductsView = () => {
+  const [searchParams] = useSearchParams(); 
+  const category = searchParams.get("category"); 
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,8 +22,6 @@ function ItemListContainer({ category }) {
       ))}
     </section>
   );
-}
+};
 
-export default ItemListContainer;
-
-
+export default ProductsView;
