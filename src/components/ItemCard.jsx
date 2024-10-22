@@ -1,6 +1,7 @@
 import "./ItemCard.css";
 import { Link } from "react-router-dom";
 
+// Renderizado de producto + ver detalle
 function ItemCard({ product }) {
   return (
     <div className="container-product">

@@ -1,6 +1,8 @@
 import Checkout from "../components/Checkout";
 
-function HomeView() {
+
+//Proceso de renderizado de checkout
+function CheckoutView() {
   return (
     <>
       <Checkout />
@@ -8,4 +10,4 @@ function HomeView() {
   );
 }
 
-export default HomeView;
+export default CheckoutView;

@@ -4,6 +4,8 @@ import ReactLoading from "react-loading";
 import { getProducts } from "../../asyncMock";
 import "./HomeView.css";
 
+
+//Primer renderizado de productos generales con loading
 function HomeView() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

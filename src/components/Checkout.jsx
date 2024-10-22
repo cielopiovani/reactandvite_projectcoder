@@ -3,6 +3,7 @@ import { useCart } from "../CartContext";
 import { addOrder } from "../asyncMock";
 import "./Checkout.css";
 
+//Formulario de checkout y finalización de compra
 function Checkout() {
   const { cart } = useCart();
   const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ function Checkout() {
   const totalAmount = cart.reduce(
     (total, item) => total + item.price * item.quantity,
     0
-  ); // Calcular total
+  );
 
   if (orderId) {
     return (
@@ -72,60 +73,60 @@ function Checkout() {
             </div>
           </div>
         ))}
-      </div>
-      <h3 className="checkout-total">Total: ${totalAmount}</h3>
-      <div className="container-checkout">
-        <h3>DATOS DE CONTACTO</h3>
-        <div className="checkout-form">
-          <form onSubmit={handleSubmit}>
-            <div className="checkout-datos">
-              <input
-                name="name"
-                placeholder="Nombre"
-                onChange={handleChange}
-                required
-              />
-              <input
-                name="surname"
-                placeholder="Apellido"
-                onChange={handleChange}
-                required
-              />
-              <input
-                name="phone"
-                placeholder="Teléfono"
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="checkout-datos">
-              <input
-                name="email"
-                type="email"
-                placeholder="Email"
-                onChange={handleChange}
-                required
-              />
-              <input
-                name="emailConfirm"
-                type="email"
-                placeholder="Repite tu Email"
-                onChange={handleChange}
-                required
-              />
-              <label className="checkout-terms">
+        <h3 className="checkout-total">Total: ${totalAmount}</h3>
+        <div className="container-checkout">
+          <h3>DATOS DE CONTACTO</h3>
+          <div className="checkout-form">
+            <form onSubmit={handleSubmit}>
+              <div className="checkout-datos">
                 <input
-                  type="radio"
-                  name="terms"
-                  value="accepted"
-                  onChange={handleTermsChange}
+                  name="name"
+                  placeholder="Nombre"
+                  onChange={handleChange}
                   required
                 />
-                Acepto los términos y condiciones
-              </label>
-            </div>
-            <button type="submit" className="button-send">REALIZAR PEDIDO</button>
-          </form>
+                <input
+                  name="surname"
+                  placeholder="Apellido"
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  name="phone"
+                  placeholder="Teléfono"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="checkout-datos">
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  name="emailConfirm"
+                  type="email"
+                  placeholder="Repite tu Email"
+                  onChange={handleChange}
+                  required
+                />
+                <label className="checkout-terms">
+                  <input
+                    type="radio"
+                    name="terms"
+                    value="accepted"
+                    onChange={handleTermsChange}
+                    required
+                  />
+                  Acepto los términos y condiciones
+                </label>
+              </div>
+              <button type="submit" className="button-send">REALIZAR PEDIDO</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -133,3 +134,4 @@ function Checkout() {
 }
 
 export default Checkout;
+

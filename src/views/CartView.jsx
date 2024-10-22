@@ -5,8 +5,15 @@
 // Resumen del total de la orden.
 // Formulario para la información del usuario (nombre, apellido, teléfono, email).
 // Botón para "Realizar compra" que activará el proceso de checkout.
+
+import Cart from "../components/cart";
+
 function CartView() {
-    return <div>Cart View Component</div>;
+    return (
+      <>
+        <Cart />
+      </>
+    );
   }
   
   export default CartView;

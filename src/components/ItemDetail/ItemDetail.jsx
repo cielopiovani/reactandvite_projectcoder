@@ -3,6 +3,8 @@ import { useCart } from '../../CartContext';
 import ItemQuantitySelector from './ItemQuantitySelector';
 import AddItemButton from './AddItemButton';
 
+
+// Funcion renderizado detalles de producto + component button, quantity y description
 function ItemDetail({ product }) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();

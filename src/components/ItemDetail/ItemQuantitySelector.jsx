@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import "./ItemQuantitySelector.css";
-import "../ButtonMenu.css";
+import './ItemQuantitySelector.css';
+import '../ButtonMenu.css';
 
+// Funcion para agregar al carrito
 function ItemQuantitySelector({ productId, onQuantityChange }) {
   const [quantity, setQuantity] = useState(1);
 

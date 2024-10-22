@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeView from "./views/HomeView/HomeView.jsx";
 import ItemDetailContainer from "./views/ItemDetailContainer/ItemDetailContainer.jsx";
 import ProductsView from "./views/ProductsView/ProductsView.jsx";
-import CartView from "./views/CartView.jsx";
-import CheckoutView from "./views/CheckoutView.jsx";
+import Cart from "./views/CartView.jsx";
+import Checkout from "./views/CheckoutView.jsx";
 import { CartProvider } from "./CartContext.jsx";
 
 function App() {
@@ -14,11 +14,11 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route exact path="/" element={<HomeView />} />
-          <Route exact path="/products" element={<ProductsView />} />
-          <Route exact path="/product/:id" element={<ItemDetailContainer />} />
-          <Route exact path="/cart" element={<CartView />} />
-          <Route exact path="/checkout" element={<CheckoutView />} />
+          <Route path="/" element={<HomeView />} />
+          <Route path="/categories/:categoryId" element={<ProductsView />}/>
+          <Route path="/product/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

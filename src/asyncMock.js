@@ -3,7 +3,7 @@ const products = [
     id: 1,
     title: "Corpiño Mar Lila",
     price: "25$",
-    category: "corpinio",
+    category: "corpinios",
     quantity: "",
     description:
       "Descripción: Corpiño con escote cuadrado, espalda baja, y terminaciones de excelente calidad. Cómodo y suave, sencillo y elegante.",
@@ -14,7 +14,7 @@ const products = [
     id: 2,
     title: "Corpiño Mar Celeste",
     price: "25$",
-    category: "corpinio",
+    category: "corpinios",
     quantity: "",
     description:
       "Descripción: Corpiño con escote cuadrado, espalda baja, y terminaciones de excelente calidad. Cómodo y suave, sencillo y elegante.",
@@ -25,7 +25,7 @@ const products = [
     id: 3,
     title: "Bombacha Mar Lila",
     price: "20$",
-    category: "bombacha",
+    category: "bombachas",
     description:
       "Nueva bombacha estilo trusa. Diseño cómodo, simple y elegante.",
     image:
@@ -35,7 +35,7 @@ const products = [
     id: 4,
     title: "Bombacha Mar Celeste",
     price: "20$",
-    category: "bombacha",
+    category: "bombachas",
     description:
       "Nueva bombacha estilo trusa. Diseño cómodo, simple y elegante.",
     image:

@@ -3,13 +3,15 @@ import { useCart } from '../CartContext';
 import "./CardWidget.css";
 import { useNavigate } from 'react-router-dom';
 
+
+// Renderizado carrito + cant productos pedido
 function CardWidget() {
   const { cart } = useCart();
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/checkout');
+    navigate('/cart');
   };
 
   return (

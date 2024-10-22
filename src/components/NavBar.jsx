@@ -1,24 +1,29 @@
-import ButtonMenu from "./ButtonMenu";
-import CardWidget from "./CardWidget";
-import "./NavBar.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ButtonMenu from './ButtonMenu';
+import CardWidget from './CardWidget';
+import './NavBar.css';
 
+const categories = [
+  { id: 'active', name: 'ACTIVE' },
+  { id: 'corpinios', name: 'CORPIÑOS' },
+  { id: 'bombachas', name: 'BOMBACHAS' },
+];
+
+
+// Renderizado de menu
 function NavBar() {
   return (
     <nav className="nav-bar">
-      <Link to="/products">
+      <Link to="/">
         <img src="src/assets/logo_dunas_negro.png" alt="dunas" className="icon" />
       </Link>
       <div>
-        <Link to="/products?category=active" >
-          <ButtonMenu titulo="ACTIVE" />
-        </Link>
-        <Link to="/products?category=corpinio" >
-          <ButtonMenu titulo="CORPIÑOS" />
-        </Link>
-        <Link to="/products?category=bombacha" >
-          <ButtonMenu titulo="BOMBACHAS" />
-        </Link>
+        {categories.map(category => (
+          <Link key={category.id} to={`/categories/${category.id}`}>
+            <ButtonMenu titulo={category.name} />
+          </Link>
+        ))}
       </div>
       <CardWidget />
     </nav>
@@ -26,3 +31,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

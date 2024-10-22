@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getProducts } from "../asyncMock.js";
 import ItemCard from "./ItemCard.jsx";
 
-
+// Filtrado de productos por categoria
 function ItemListContainer({ category }) {
   const [products, setProducts] = useState([]);
 

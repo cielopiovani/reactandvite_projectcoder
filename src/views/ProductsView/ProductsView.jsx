@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getProducts } from "../../asyncMock.js";
 import ItemCard from "../../components/ItemCard.jsx";
-import { useSearchParams } from "react-router-dom"; 
 
 const ProductsView = () => {
-  const [searchParams] = useSearchParams(); 
-  const category = searchParams.get("category"); 
+  const { categoryId } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     getProducts.then((data) => {
-      const filteredProducts = category ? data.filter(product => product.category === category) : data;
+      const filteredProducts = categoryId ? data.filter(product => product.category === categoryId) : data;
       setProducts(filteredProducts);
     });
-  }, [category]);
+  }, [categoryId]);
 
   return (
     <section className="container-products">
