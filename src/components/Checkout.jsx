@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useCart } from "../CartContext";
-import { addOrder } from "../asyncMock";
+import { addOrder } from "../firebase/firesebase";
+// import { addOrder } from "../asyncMock";
 import "./Checkout.css";
 
 //Formulario de checkout y finalización de compra
