@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "../CartContext";
 import { addOrder } from "../firebase/firesebase";
-// import { addOrder } from "../asyncMock";
 import "./Checkout.css";
 
 //Formulario de checkout y finalización de compra
@@ -35,6 +34,7 @@ function Checkout() {
       items: cart,
       date: new Date(),
       customer: formData,
+      total: totalAmount,
     };
     const id = await addOrder(order);
     setOrderId(id);
@@ -48,7 +48,8 @@ function Checkout() {
   if (orderId) {
     return (
       <div>
-        ¡Gracias por tu compra en DUNAS! Tu número de orden es: {orderId}
+        <h3>¡Gracias por tu compra en DUNAS!</h3>
+        <p>El número de tu orden es: {orderId}</p>
       </div>
     );
   }
@@ -56,7 +57,7 @@ function Checkout() {
   return (
     <div>
       <div className="contenedor">
-        <h3>RESUMEN DE COMPRA</h3>
+        <h3>RESUMEN DE TU PEDIDO</h3>
         {cart.map((item) => (
           <div key={item.id} className="checkout-conteiner">
             <div className="checkout-img">

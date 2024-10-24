@@ -3,6 +3,7 @@ import { useCart } from '../../CartContext';
 import ItemQuantitySelector from './ItemQuantitySelector';
 import AddItemButton from './AddItemButton';
 
+// Detalle de producto con funcion agregar al carrito
 function ItemDetail({ product }) {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
@@ -15,7 +16,7 @@ function ItemDetail({ product }) {
     const itemToAdd = {
       id: product.id,
       title: product.title,
-      price: product.price, // Asegúrate de que sea un número
+      price: product.price,
       quantity: quantity,
       image: product.image,
     };

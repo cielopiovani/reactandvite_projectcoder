@@ -4,7 +4,7 @@ import "./CardWidget.css";
 import { useNavigate } from 'react-router-dom';
 
 
-// Renderizado carrito + cant productos pedido
+// Funcion cantidad de productos carrito en icono
 function CardWidget() {
   const { cart } = useCart();
   const totalItems = cart.reduce((total, item) => total + item.quantity, 0);

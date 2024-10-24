@@ -15,7 +15,7 @@ function App() {
         <NavBar />
         <Routes>
   <Route path="/" element={<HomeView />} />
-  <Route path="/categories/:category" element={<ProductsView />} /> {/* Cambiado aquí */}
+  <Route path="/categories/:category" element={<ProductsView />} /> 
   <Route path="/product/:id" element={<ItemDetailContainer />} />
   <Route path="/cart" element={<Cart />} />
   <Route path="/checkout" element={<Checkout />} />

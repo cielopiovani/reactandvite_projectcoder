@@ -42,7 +42,7 @@ function Cart() {
           ))}
           <h3 className="checkout-total">Total: ${totalAmount}</h3>
           <button onClick={handleCheckout} className="button-send">
-            Finalizar compra
+            CONTINUAR CON EL PEDIDO
           </button>
         </>
       )}

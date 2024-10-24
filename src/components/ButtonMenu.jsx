@@ -1,6 +1,6 @@
 import "./ButtonMenu.css";
 
-// Renderizado de buttons
+// Renderizado de botones menu
 function ButtonMenu({ titulo }) {
   return <button className="botones-menu">{titulo}</button>;
 }

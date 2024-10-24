@@ -1,5 +1,14 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  query,
+  where,
+  setDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB8AKaqgpbRvYel5LCAMdt_O-MOB31oXDA",
@@ -7,35 +16,58 @@ const firebaseConfig = {
   projectId: "ecommerce-dunas",
   storageBucket: "ecommerce-dunas.appspot.com",
   messagingSenderId: "730190945901",
-  appId: "1:730190945901:web:078d779012e53e66802964"
+  appId: "1:730190945901:web:078d779012e53e66802964",
 };
 
-// Inicializa Firebase
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Funciones para interactuar con Firestore
-export const getProducts = async () => {
+// Obtener un producto por ID
+export async function getProduct(id) {
+  const productRef = doc(db, "products", id);
+  try {
+    const productDoc = await getDoc(productRef);
+    if (productDoc.exists()) {
+      return { id: productDoc.id, ...productDoc.data() };
+    } else {
+      console.log('El documento no existe!');
+    }
+  } catch (error) {
+    console.error('Error al obtener el documento: ', error);
+  }
+}
+
+// Obtener todos los productos
+export async function getProducts() {
+  try {
     const productsCollection = collection(db, "products");
     const productsSnapshot = await getDocs(productsCollection);
     return productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-};
+  } catch (error) {
+    console.error('Error al obtener los documentos: ', error);
+  }
+}
 
-export const getProduct = async (id) => {
-  const productRef = doc(db, "products", id);
-  const productDoc = await getDoc(productRef);
-  return productDoc.exists() ? { id: productDoc.id, ...productDoc.data() } : null;
-};
-
-export const getProductsByCategory = async (category) => {
+// Filtrar productos por categoría
+export async function getProductsByCategory(category) {
   const q = query(collection(db, "products"), where("category", "==", category));
-  const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-};
+  try {
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  } catch (error) {
+    console.error('Error al filtrar productos: ', error);
+  }
+}
 
-// Función para agregar una orden
-export const addOrder = async (order) => {
-    const orderRef = doc(collection(db, "orders"));
+// Agregar una nueva orden
+export async function addOrder(order) {
+  const orderRef = doc(collection(db, "orders"));
+  try {
     await setDoc(orderRef, order);
+    console.log('Nueva orden generada: ' + orderRef.id);
     return orderRef.id;
-};
+  } catch (error) {
+    console.error('Error al agregar el documento: ', error);
+  }
+}
