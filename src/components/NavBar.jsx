@@ -16,7 +16,7 @@ function NavBar() {
     <nav className="nav-bar">
       <Link to="/">
         <img
-          src="src/assets/logo_dunas_negro.png"
+          src="public/logo_dunas_negro.png"
           alt="dunas"
           className="icon"
         />
