@@ -13,7 +13,7 @@ E-commerce simple de una marca de ropa interior y prendas de algodón (marca per
 - Checkout con validación de datos.
 - Envío de pedido a Firebase.
 
-## Librerías Utilizadas
+## Librerías utilizadas
 - Bootstrap-icons para el icono de cart.
 - React Router Dom para la navegación.
 - Firebase para la base de datos.
@@ -24,10 +24,14 @@ E-commerce simple de una marca de ropa interior y prendas de algodón (marca per
 2. Ejecuta `npm install` para instalar las dependencias.
 3. Ejecuta `npm start` para iniciar la aplicación.
 
+## Imágenes del proyecto
+
+[Video Ecommerce-dunas - Cloud Firestore - Datos](/public/Vite%20+%20React.mp4)
+
+[Video Ecommerce-dunas - Cloud Firestore - Datos](/public/Ecommerce-dunas%20-%20Cloud%20Firestore%20-%20Datos.mp4)
 
 
-[Visita la web oficial]()
+## SITIO EN NETLIFY
 
-![Imágenes del proyecto]()
-
+[Visita la web oficial](https://ecommercedunas-reactjs.netlify.app/)
 
