@@ -31,32 +31,57 @@ export async function getProduct(id) {
     if (productDoc.exists()) {
       return { id: productDoc.id, ...productDoc.data() };
     } else {
-      console.log('El documento no existe!');
+      alert("El documento no existe!");
     }
   } catch (error) {
-    console.error('Error al obtener el documento: ', error);
+    console.error("Error al obtener el documento: ", error);
   }
 }
 
-// Obtener todos los productos
+// Obtener todos los productos de la colección
 export async function getProducts() {
   try {
     const productsCollection = collection(db, "products");
-    const productsSnapshot = await getDocs(productsCollection);
-    return productsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const querySnapshot = await getDocs(productsCollection);
+
+    if (querySnapshot.size !== 0) {
+      const productsList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      return productsList;
+    } else {
+      alert("Colección vacía!");
+      return [];
+    }
   } catch (error) {
-    console.error('Error al obtener los documentos: ', error);
+    console.error("Error al obtener los documentos: ", error);
+    return [];
   }
 }
 
 // Filtrar productos por categoría
 export async function getProductsByCategory(category) {
-  const q = query(collection(db, "products"), where("category", "==", category));
+  const filteredcategory = query(
+    collection(db, "products"),
+    where("category", "==", category)
+  );
   try {
-    const querySnapshot = await getDocs(q);
-    return querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const querySnapshot = await getDocs(filteredcategory);
+
+    if (querySnapshot.size !== 0) {
+      const productsList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      return productsList;
+    } else {
+      alert("No se encontraron productos en esta categoría.");
+      return [];
+    }
   } catch (error) {
-    console.error('Error al filtrar productos: ', error);
+    console.error("Error al filtrar productos: ", error);
+    return [];
   }
 }
 
@@ -65,9 +90,9 @@ export async function addOrder(order) {
   const orderRef = doc(collection(db, "orders"));
   try {
     await setDoc(orderRef, order);
-    console.log('Nueva orden generada: ' + orderRef.id);
+    console.log("Nueva orden generada: " + orderRef.id);
     return orderRef.id;
   } catch (error) {
-    console.error('Error al agregar el documento: ', error);
+    console.error("Error al agregar el documento: ", error);
   }
 }

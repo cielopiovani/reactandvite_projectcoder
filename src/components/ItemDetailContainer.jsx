@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "./ItemDetailContainer.css";
-import { useParams } from 'react-router-dom';
-import { getProduct } from '../../firebase/firesebase';
-import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import { useParams } from "react-router-dom";
+import { getProduct } from "../firebase/firesebase";
+import ItemDetail from "./ItemDetail/ItemDetail";
 
 // Ejecucion de un producto por id, al ingresar a detalles del producto
 function ItemDetailContainer() {
@@ -18,7 +18,7 @@ function ItemDetailContainer() {
         setError(null);
       } else {
         setProduct(null);
-        setError('Producto no encontrado.');
+        setError("Producto no encontrado.");
       }
     };
     fetchProduct();
@@ -40,12 +40,3 @@ function ItemDetailContainer() {
 }
 
 export default ItemDetailContainer;
-
-
-
-
-
-
-
-
-

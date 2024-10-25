@@ -45,11 +45,11 @@
 }
 
 .checkout-form input:hover {
-    border: none;
-} 
+  border: none;
+}
 
 .checkout-form input:focus {
-    outline: none;
+  outline: none;
 }
 
 .checkout-datos {

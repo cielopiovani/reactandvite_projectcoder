@@ -3,17 +3,23 @@ import React, { useEffect, useState } from "react";
 import { getProducts, getProductsByCategory } from "../firebase/firesebase.js";
 import ItemCard from "./ItemCard.jsx";
 
-// Renderizado productos por categoria
+// Renderizado productos por categoría
 function ItemListContainer({ category }) {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = category ? await getProductsByCategory(category) : await getProducts();
+      const data = category
+        ? await getProductsByCategory(category)
+        : await getProducts();
       setProducts(data);
     };
     fetchProducts();
   }, [category]);
+
+  if (products === null) {
+    return null;
+  }
 
   if (products.length === 0) {
     return <div>No hay productos</div>;
@@ -29,6 +35,3 @@ function ItemListContainer({ category }) {
 }
 
 export default ItemListContainer;
-
-
-

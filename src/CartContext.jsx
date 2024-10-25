@@ -9,11 +9,14 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (item) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find(cartItem => cartItem.id === item.id);
+      const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
       if (existingItem) {
-        return prevCart.map(cartItem =>
+        return prevCart.map((cartItem) =>
           cartItem.id === item.id
-            ? { ...existingItem, quantity: existingItem.quantity + item.quantity }
+            ? {
+                ...existingItem,
+                quantity: existingItem.quantity + item.quantity,
+              }
             : cartItem
         );
       } else {

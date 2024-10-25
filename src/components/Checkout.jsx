@@ -126,7 +126,9 @@ function Checkout() {
                   Acepto los términos y condiciones
                 </label>
               </div>
-              <button type="submit" className="button-send">REALIZAR PEDIDO</button>
+              <button type="submit" className="button-send">
+                REALIZAR PEDIDO
+              </button>
             </form>
           </div>
         </div>
@@ -136,4 +138,3 @@ function Checkout() {
 }
 
 export default Checkout;
-
